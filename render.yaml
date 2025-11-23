@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: laravel-app
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: dpg-d4hn44h5pdvs739bi9f0-a.oregon-postgres.render.com
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: cadastro_jouq
+      - key: DB_USERNAME
+        value: cadastro_jouq_user
+      - key: DB_PASSWORD
+        value: SjUP8oI1h4umdqmv6OCm1akyXESG7q3Z
+      - key: DB_SSLMODE
+        value: require
