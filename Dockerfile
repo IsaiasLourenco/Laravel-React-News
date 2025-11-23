@@ -18,6 +18,14 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader
+# Instala dependências e prepara Laravel
+RUN composer install --no-dev --optimize-autoloader \
+    && cp .env.example .env \
+    && php artisan key:generate \
+    && php artisan config:clear \
+    && php artisan route:clear \
+    && php artisan view:clear \
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
 
 CMD php artisan serve --host=0.0.0.0 --port=10000
