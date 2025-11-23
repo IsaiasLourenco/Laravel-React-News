@@ -11,11 +11,22 @@ import {
 } from 'recharts';
 
 export default function Dashboard() {
-const { user, stats, latest_users } = usePage().props as unknown as {
-    user: any;
-    stats: any;
-    latest_users: any[];
-};
+    interface User {
+        id: number;
+        name: string;
+        email: string;
+        created_at: string;
+    }
+
+    interface Stats {
+        users_total: number;
+    }
+
+    const { user, stats, latest_users } = usePage().props as unknown as {
+        user: User;
+        stats: Stats;
+        latest_users: User[];
+    };
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
