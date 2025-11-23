@@ -22,11 +22,13 @@ export default function Create() {
 
     useEffect(() => {
         if (!data.imagem) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setPreview(null);
             return;
         }
 
         const objectUrl = URL.createObjectURL(data.imagem);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPreview(objectUrl);
 
         // Limpa o URL temporário quando mudar a imagem

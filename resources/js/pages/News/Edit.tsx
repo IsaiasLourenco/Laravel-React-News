@@ -32,6 +32,7 @@ export default function Edit({ news }: EditProps) {
     useEffect(() => {
         if (!data.imagem) return;
         const objectUrl = URL.createObjectURL(data.imagem);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPreview(objectUrl);
         return () => URL.revokeObjectURL(objectUrl);
     }, [data.imagem]);
