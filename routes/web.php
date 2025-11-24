@@ -32,5 +32,9 @@ Route::get('/cadastro', function () {
     return Inertia::render('Cadastro');
 });
 
+Route::get('/ping', function () {
+    return 'pong';
+});
+
 
 require __DIR__ . '/settings.php';
